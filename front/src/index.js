@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import {SnackbarProvider} from 'notistack'
+ReactDOM.render(
   <React.StrictMode>
+<SnackbarProvider maxSnack={3}> 
     <App />
-  </React.StrictMode>
+    </SnackbarProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
+serviceWorker.unregister();
